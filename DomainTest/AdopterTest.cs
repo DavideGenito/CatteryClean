@@ -37,7 +37,7 @@ namespace TestDomain
             TIN tin = new TIN("TSSNNA08R61D704Z");
             Adopter adopter = new Adopter("Anna", "Tassinari", email, phoneNumber, address, tin);
 
-            string expectedString = "Adopter: Anna Tassinari, Phone: +396543213345, Address: Main St, Springfield, 62701, TIN:  TSSNNA08R61D704Z";
+            string expectedString = "Adopter Details:\nName: Anna Tassinari\nPhone Number: +396543213345\nAddress: Main St 555, Springfield 62701\nTIN: TSSNNA08R61D704Z";
             Assert.AreEqual(expectedString, adopter.ToString());
         }
     }

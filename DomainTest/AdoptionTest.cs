@@ -67,7 +67,7 @@ namespace TestDomain
             Adopter adopter = new Adopter("Anna", "Tassinari", email, phoneNumber, address, tin);
             Adoption adoption = new Adoption(adopter, cat, new DateTime(2020, 05, 20));
 
-            string expectedString = "Adoption Details:\nAdopter: Anna Tassinari\nCat: Kiwi\nAdoption Date: 5/20/2020";
+            string expectedString = "Adoption Details:\nAdopter: Anna Tassinari\nCat: Kiwi\nAdoption Date: 20/05/2020";
             Assert.AreEqual(expectedString, adoption.ToString());
         }
     }

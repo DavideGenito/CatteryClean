@@ -9,7 +9,7 @@ namespace Domain.Model.ValueObjects
     public record TIN
     {
         /*
-         * Le prime tre lettere del codice fiscale sono prese dal cognome (consonanti)
+         * Le prime tre lettere del codice fiscale sono prese dal cognome (consonanti solitamente)
          * Le seconde tre dal nome (consonanti)
          * Le ultime due cifre dell'anno di nascita
          * Una lettera per il mese (A = Gennaio, B, C, D, E, H, L, M, P, R, S, T = Dicembre)
@@ -17,30 +17,29 @@ namespace Domain.Model.ValueObjects
          * Codice del comune (quattro caratteri)
          * Carattere di controllo, per verificare la correttezza del codice fiscale. 
          */
-        private List<char> consonants = new List<char> { 'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z' };
         public string Value;
         public TIN(string value)
         {
             if(value.Length != 16) throw new ArgumentException("Invalid TIN lenght");
             for(int i = 0; i < 6; i++)
             {
-                if (!consonants.Contains(value[i])) throw new ArgumentException("Invalid TIN format 1");
+                if (!Char.IsLetter(value[i])) throw new ArgumentException("Invalid TIN format");
             }
             for(int i = 6; i < 8;  i++)
             {
-                if(!consonants.Contains(value[i])) throw new ArgumentException("Invalid TIN format 2");
+                if(!Char.IsDigit(value[i])) throw new ArgumentException("Invalid TIN format");
             }
-            if (!Char.IsLetter(value[8])) throw new ArgumentException("Invalid TIN format 3");
+            if (!Char.IsLetter(value[8])) throw new ArgumentException("Invalid TIN format");
             for (int i = 9; i < 11; i++)
             {
-                if (!Char.IsDigit(value[i])) throw new ArgumentException("Invalid TIN format 4");
+                if (!Char.IsDigit(value[i])) throw new ArgumentException("Invalid TIN format");
             }
-            if (!Char.IsLetter(value[11])) throw new ArgumentException("Invalid TIN format 5");
+            if (!Char.IsLetter(value[11])) throw new ArgumentException("Invalid TIN format");
             for(int i = 12;  i < 15; i++)
             {
-                if (!Char.IsDigit(value[i])) throw new ArgumentException("Invalid TIN format 6");
+                if (!Char.IsDigit(value[i])) throw new ArgumentException("Invalid TIN format");
             }
-            if (!Char.IsLetter(value[15])) throw new ArgumentException("Invalid TIN format 7");
+            if (!Char.IsLetter(value[15])) throw new ArgumentException("Invalid TIN format");
 
             Value = value;
         }
