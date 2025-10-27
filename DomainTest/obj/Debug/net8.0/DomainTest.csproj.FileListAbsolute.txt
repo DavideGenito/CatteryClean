@@ -1,0 +1,6 @@
+C:\Users\anna.tassinari\Desktop\Nuova cartella\CatteryButClean\DomainTest\obj\Debug\net8.0\DomainTest.csproj.AssemblyReference.cache
+C:\Users\anna.tassinari\Desktop\Nuova cartella\CatteryButClean\DomainTest\obj\Debug\net8.0\DomainTest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anna.tassinari\Desktop\Nuova cartella\CatteryButClean\DomainTest\obj\Debug\net8.0\DomainTest.AssemblyInfoInputs.cache
+C:\Users\anna.tassinari\Desktop\Nuova cartella\CatteryButClean\DomainTest\obj\Debug\net8.0\DomainTest.AssemblyInfo.cs
+C:\Users\anna.tassinari\Desktop\Nuova cartella\CatteryButClean\DomainTest\obj\Debug\net8.0\DomainTest.csproj.CoreCompileInputs.cache
+C:\Users\anna.tassinari\Desktop\Nuova cartella\CatteryButClean\DomainTest\obj\Debug\net8.0\DomainTest.sourcelink.json
