@@ -22,3 +22,15 @@ C:\Users\davide.genito\Desktop\Git\CatteryButClean\Domain\obj\Debug\net8.0\Domai
 C:\Users\davide.genito\Desktop\Git\CatteryButClean\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Users\davide.genito\Desktop\Git\CatteryButClean\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Users\davide.genito\Desktop\Git\CatteryButClean\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\bin\Debug\net8.0\Domain.dll
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\Domain.dll
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Users\david\Desktop\Informatica\c#\CatteryClean\Domain\obj\Debug\net8.0\ref\Domain.dll
