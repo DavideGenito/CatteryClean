@@ -1,6 +1,8 @@
 ﻿using System;
 using Application.UseCases;
+using Infrastructure.Repositories;
 using Infrastructure;
+using Application.Dto;
 
 namespace UIConsole
 {
@@ -83,7 +85,17 @@ namespace UIConsole
 
             try
             {
-                cattery.RegistrazioneGatto(nome, razza, sesso, dataArrivo, dataNascita, annoPresunto, descrizione);
+                CatDto cat = new CatDto
+                {
+                    Name = nome,
+                    Breed = razza,
+                    IsMale = sesso,
+                    DataArrivo = dataArrivo,
+                    DataNascita = dataNascita,
+                    AnnoPresunto = annoPresunto,
+                    Descrizione = descrizione
+                };
+                cattery.AddCat(nome, razza, sesso, dataArrivo, dataNascita, annoPresunto, descrizione);
                 Console.WriteLine("\n✅ Gatto registrato correttamente!");
             }
             catch (Exception ex)

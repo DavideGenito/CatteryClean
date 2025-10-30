@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Dto;
 using Application.Interfaces;
+using Application.Mappers;
 using Domain.Model.Entities;
+using Infrastructure.Dto;
+using Infrastructure.Mapper;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Application.Mappers;
-using Application.Dto;
 
 namespace Infrastructure.Repositories
 {
@@ -56,11 +53,11 @@ namespace Infrastructure.Repositories
                 try
                 {
                     var jsonData = File.ReadAllText(_adopterFilePath);
-                    var adopters = JsonSerializer.Deserialize<List<AdopterDto>>(jsonData, _jsonOptions);
+                    var adopters = JsonSerializer.Deserialize<List<AdopterPersistenceDto>>(jsonData, _jsonOptions);
                     if (adopters != null)
                     {
                         foreach (var a in adopters)
-                            _adopters[a.TIN.ToString()] = a.ToAdopter();
+                            _adopters[a.TIN.ToString()] = a.ToAdopterPersistence();
                     }
                 }
                 catch (Exception ex)
@@ -75,12 +72,12 @@ namespace Infrastructure.Repositories
         private void SaveChanges()
         {
             // save cats
-            var catsList = _cache.Values.Select(a => a.ToCatDto()).ToList();
+            var catsList = _cache.Values.Select(a => a.ToCatPersistenceDto()).ToList();
             var jsonData = JsonSerializer.Serialize(catsList, _jsonOptions);
             File.WriteAllText(_catFilePath, jsonData);
 
             // save adopters
-            var adoptersList = _adopters.Values.Select(a => a.ToAdopterDto()).ToList();
+            var adoptersList = _adopters.Values.Select(a => a.ToAdopterPersistenceDto()).ToList();
             var jsonAdopters = JsonSerializer.Serialize(adoptersList, _jsonOptions);
             File.WriteAllText(_adopterFilePath, jsonAdopters);
         }
@@ -89,7 +86,7 @@ namespace Infrastructure.Repositories
         {
             if (cat == null) throw new ArgumentNullException(nameof(cat));
             EnsureDataLoaded();
-            if (_cache.ContainsKey(cat.Name)) 
+            if (_cache.ContainsKey(cat.Name))
                 throw new InvalidOperationException($"A cat with the name '{cat.Name}' already exists.");
             _cache[cat.Name] = cat;
             SaveChanges();

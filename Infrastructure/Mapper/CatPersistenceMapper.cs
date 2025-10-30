@@ -10,7 +10,7 @@ namespace Infrastructure.Mapper
 {
     internal static class CatPersistenceMapper
     {
-        public static CatPersistenceDto ToPersistenceDto(this Cat cat)
+        public static CatPersistenceDto ToCatPersistenceDto(this Cat cat)
         {
             return new Dto.CatPersistenceDto(
                 name: cat.Name,
@@ -23,7 +23,7 @@ namespace Infrastructure.Mapper
                 );
         }
 
-        public static Cat ToCat(this CatPersistenceDto catPersistenceDto)
+        public static Cat ToPersistenceCat(this CatPersistenceDto catPersistenceDto)
         {
             if (catPersistenceDto == null)
             {
