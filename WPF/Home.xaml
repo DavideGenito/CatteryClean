@@ -1,0 +1,101 @@
+﻿<Window x:Class="WPF.Home"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="Home" Height="450" Width="800">
+
+    <StackPanel 
+        Orientation="Vertical">
+        <Menu 
+            VerticalAlignment="Top">
+            <MenuItem 
+                Header="_Cats">
+                <MenuItem 
+                    Header="_New">
+                    <MenuItem.Icon>
+                        <
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem 
+                    Header="_Manage" />
+            </MenuItem>
+            <MenuItem 
+                Header="_Adoption">
+                <MenuItem 
+                    Header="_New" />
+                <MenuItem 
+                    Header="_Failed" />
+                <MenuItem 
+                    Header="_Register" />
+            </MenuItem>
+        </Menu>
+
+        <StackPanel
+            Orientation="Vertical"
+            Margin="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Label 
+                Content="Welcome to the Cat Adoption Center!" 
+                FontSize="24" 
+                FontWeight="Bold" 
+                Margin="10" 
+                HorizontalAlignment="Center"/>
+
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="10">
+                <Label
+                    Content="Number of male cats: "
+                    FontSize="20"/>
+                <Label
+                    x:Name="lblMaleCats"
+                    FontSize="20"
+                    Content="0"/>
+            </StackPanel>
+
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="10">
+                <Label
+                    Content="Number of female cats: "
+                    FontSize="20"/>
+                <Label
+                    x:Name="lblFemaleCats"
+                    FontSize="20"
+                    Content="0"/>
+            </StackPanel>
+
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="10">
+                <Label
+                    Content="Total cats: "
+                    FontSize="20"/>
+                <Label
+                    x:Name="lblTotCats"
+                    FontSize="20"
+                    Content="0"/>
+            </StackPanel>
+
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center"
+                Margin="10">
+                <Label
+                    Content="Total adoption: "
+                    FontSize="20"/>
+                <Label
+                    x:Name="lblTotAdoption"
+                    FontSize="20"
+                    Content="0"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>
