@@ -24,6 +24,9 @@ namespace WPF
         public Home()
         {
             InitializeComponent();
+            string exePath = AppDomain.CurrentDomain.BaseDirectory;
+
+            imgNewCat.Source = new BitmapImage(new Uri(System.IO.Path.Combine(exePath, "../../../Data/img/cat_plus.png"), UriKind.Absolute));
 
             int maleCats = 0;
             int femaleCats = 0;
@@ -45,6 +48,12 @@ namespace WPF
             lblMaleCats.Content = maleCats.ToString();
             lblTotAdoption.Content = adoptedCats.ToString();
             lblTotCats.Content = cats.Count.ToString();
+        }
+
+        private void BtnNewCat_Click(object sender, RoutedEventArgs e)
+        {
+            AddCat addCatWindow = new AddCat(cattery);
+            addCatWindow.ShowDialog();
         }
     }
 }

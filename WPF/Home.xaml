@@ -14,9 +14,14 @@
             <MenuItem 
                 Header="_Cats">
                 <MenuItem 
-                    Header="_New">
+                    Header="_New"
+                    x:Name="newCat"
+                    Click="BtnNewCat_Click">
                     <MenuItem.Icon>
-                        <
+                        <Image 
+                            x:Name="imgNewCat" 
+                            Width="16" 
+                            Height="16"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem 

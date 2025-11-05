@@ -30,7 +30,7 @@ namespace Domain.Model.Entities
                 _name = value;
             }
         }
-        private string _name = "";
+        private string _name;
 
         public string Breed
         {
@@ -42,7 +42,7 @@ namespace Domain.Model.Entities
                 _breed = value;
             }
         }
-        private string _breed = "";
+        private string _breed;
 
         public bool IsMale
         {
@@ -87,7 +87,7 @@ namespace Domain.Model.Entities
                 _adoptionDate = value;
             }
         }
-        private DateTime? _adoptionDate = null;
+        private DateTime? _adoptionDate;
 
         public string? Description
         {
