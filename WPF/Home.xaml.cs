@@ -20,7 +20,7 @@ namespace WPF
     public partial class Home : Window
     {
         JsonCatRepository jsonCatRepository = new JsonCatRepository();
-        Cattery cattery;
+        CatteryService catteryService;
         public Home()
         {
             InitializeComponent();
@@ -28,11 +28,23 @@ namespace WPF
 
             imgNewCat.Source = new BitmapImage(new Uri(System.IO.Path.Combine(exePath, "../../../Data/img/cat_plus.png"), UriKind.Absolute));
 
+            Update();
+        }
+
+        private void BtnNewCat_Click(object sender, RoutedEventArgs e)
+        {
+            AddCat addCatWindow = new AddCat(catteryService);
+            addCatWindow.ShowDialog();
+            Update();
+        }
+
+        private void Update()
+        {
             int maleCats = 0;
             int femaleCats = 0;
             int adoptedCats = 0;
-            cattery = new Cattery(jsonCatRepository);
-            var cats = jsonCatRepository.GetAllCats();
+            catteryService = new CatteryService(jsonCatRepository);
+            var cats = catteryService.GetAllCats();
             foreach (var cat in cats)
             {
                 if (cat.IsMale)
@@ -48,12 +60,6 @@ namespace WPF
             lblMaleCats.Content = maleCats.ToString();
             lblTotAdoption.Content = adoptedCats.ToString();
             lblTotCats.Content = cats.Count.ToString();
-        }
-
-        private void BtnNewCat_Click(object sender, RoutedEventArgs e)
-        {
-            AddCat addCatWindow = new AddCat(cattery);
-            addCatWindow.ShowDialog();
         }
     }
 }

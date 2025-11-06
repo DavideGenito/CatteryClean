@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Dto
 {
-    internal record CatPersistenceDto(
+    internal record CatPersistenceDto(        
         string name,
         string breed,
         bool isMale,
         DateTime arrivalDate,
         DateTime? adoptionDate,
         DateTime? birthDate,
-        string? description
+        string? description,
+        string id
         );
 }

@@ -1,5 +1,4 @@
 ﻿using Application.UseCases;
-using Domain.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Domain.Model.ValueObjects;
 using Application.Mappers;
+using Application.Dto;
 
 namespace WPF
 {
@@ -23,8 +23,8 @@ namespace WPF
     /// </summary>
     public partial class AddCat : Window
     {
-        Cattery cattery;
-        public AddCat(Cattery cattery)
+        CatteryService cattery;
+        public AddCat(CatteryService cattery)
         {
             InitializeComponent();
             this.cattery = cattery;
@@ -32,16 +32,18 @@ namespace WPF
 
         private void btnAddCat_Click(object sender, RoutedEventArgs e)
         {
-            Cat cat = new Cat(
+            CatDto cat = new CatDto(
                 txtName.Text,
                 txtRace.Text,
                 chkIsMale.IsChecked ?? false,
                 DateTime.Now,
                 null,
                 dtpBirthDate.SelectedDate ?? null,
-                txtDescription.Text
+                txtDescription.Text,
+                null
                 );
-            cattery.AddCat(cat.ToCatDto());
+            cattery.AddCat(cat);
+            Close();
         }
     }
 }

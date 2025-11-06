@@ -21,7 +21,7 @@ namespace Infrastructure.Mapper
             }
             else return new Adoption(
                 adoptionDto.Adopter.ToAdopterPersistence(),
-                adoptionDto.Cat.ToPersistenceCat(),
+                adoptionDto.Cat.ToCat(),
                 adoptionDto.AdoptionDate
             );
         }

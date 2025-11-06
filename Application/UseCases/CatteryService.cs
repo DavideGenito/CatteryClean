@@ -10,10 +10,10 @@ using Domain.Model.Entities;
 
 namespace Application.UseCases
 {
-    public class Cattery
+    public class CatteryService
     {
         private readonly ICatteryRepository _catteryRepository;
-        public Cattery (ICatteryRepository catteryRepository)
+        public CatteryService (ICatteryRepository catteryRepository)
         {
             _catteryRepository = catteryRepository;
         }

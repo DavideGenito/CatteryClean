@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Infrastructure.Dto;
 using Domain.Model.Entities;
+using Domain.Model.ValueObjects;
 
 namespace Infrastructure.Mapper
 {
@@ -19,11 +20,12 @@ namespace Infrastructure.Mapper
                 arrivalDate: cat.ArrivalDate,
                 adoptionDate: cat.AdoptionDate,
                 birthDate: cat.BirthDate,
-                description: cat.Description
+                description: cat.Description,
+                id:cat.Id.Value
                 );
         }
 
-        public static Cat ToPersistenceCat(this CatPersistenceDto catPersistenceDto)
+        public static Cat ToCat(this CatPersistenceDto catPersistenceDto)
         {
             if (catPersistenceDto == null)
             {
@@ -36,7 +38,8 @@ namespace Infrastructure.Mapper
                 catPersistenceDto.arrivalDate,
                 catPersistenceDto.adoptionDate,
                 catPersistenceDto.birthDate,
-                catPersistenceDto.description
+                catPersistenceDto.description,
+                new IdCat(catPersistenceDto.id)
             );
         }
     }

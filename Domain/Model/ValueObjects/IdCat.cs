@@ -30,5 +30,10 @@ namespace Domain.Model.ValueObjects
             string randomDigits = random.Next(10000, 99999).ToString();
             Value = $"{monthLetter}{randomChars}{randomDigits}";
         }
+
+        public IdCat(string value) 
+        {
+            Value = value;
+        }
     }
 }

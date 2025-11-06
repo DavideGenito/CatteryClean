@@ -18,6 +18,18 @@ namespace Domain.Model.Entities
             Id = new ValueObjects.IdCat(arrivalDate);
         }
 
+        public Cat(string name, string breed, bool isMale, DateTime arrivalDate, DateTime? adoptionDate, DateTime? birthDate, string? description, IdCat id)
+        {
+            Name = name;
+            Breed = breed;
+            IsMale = isMale;
+            ArrivalDate = arrivalDate;
+            AdoptionDate = adoptionDate;
+            BirthDate = birthDate;
+            Description = description;
+            Id = id;
+        }
+
         public IdCat Id { get; private set; }
 
         public string Name

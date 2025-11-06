@@ -34,11 +34,11 @@ namespace Infrastructure.Repositories
                 try
                 {
                     var jsonData = File.ReadAllText(_catFilePath);
-                    var cats = JsonSerializer.Deserialize<List<CatDto>>(jsonData, _jsonOptions);
+                    var cats = JsonSerializer.Deserialize<List<CatPersistenceDto>>(jsonData, _jsonOptions);
                     if (cats != null)
                     {
                         foreach (var cat in cats)
-                            _cache[cat.Name] = cat.ToCat();
+                            _cache[cat.id] = cat.ToCat();
                     }
                 }
                 catch (Exception ex)
@@ -77,9 +77,11 @@ namespace Infrastructure.Repositories
             File.WriteAllText(_catFilePath, jsonData);
 
             // save adopters
+            /*
             var adoptersList = _adopters.Values.Select(a => a.ToAdopterPersistenceDto()).ToList();
             var jsonAdopters = JsonSerializer.Serialize(adoptersList, _jsonOptions);
             File.WriteAllText(_adopterFilePath, jsonAdopters);
+            */
         }
 
         public void AddCat(Cat cat)
@@ -88,7 +90,7 @@ namespace Infrastructure.Repositories
             EnsureDataLoaded();
             if (_cache.ContainsKey(cat.Name))
                 throw new InvalidOperationException($"A cat with the name '{cat.Name}' already exists.");
-            _cache[cat.Name] = cat;
+            _cache[cat.Id.Value] = cat;
             SaveChanges();
         }
 

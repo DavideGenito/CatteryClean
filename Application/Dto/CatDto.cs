@@ -15,6 +15,6 @@ namespace Application.Dto
         DateTime? AdoptionDate,
         DateTime? BirthDate,
         string? Description,
-        IdCat Id
+        IdCat? Id
         );
 }
