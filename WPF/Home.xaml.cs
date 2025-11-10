@@ -38,6 +38,13 @@ namespace WPF
             Update();
         }
 
+        private void BtnManageCats_Click(object sender, RoutedEventArgs e)
+        {
+            ManageCats manageCats = new ManageCats(catteryService);
+            manageCats.ShowDialog();
+            Update();
+        }
+
         private void Update()
         {
             int maleCats = 0;

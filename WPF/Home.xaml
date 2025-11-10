@@ -25,7 +25,8 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem 
-                    Header="_Manage" />
+                    Header="_Manage" 
+                    Click="BtnManageCats_Click"/>
             </MenuItem>
             <MenuItem 
                 Header="_Adoption">

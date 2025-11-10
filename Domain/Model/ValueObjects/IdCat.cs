@@ -35,5 +35,10 @@ namespace Domain.Model.ValueObjects
         {
             Value = value;
         }
+
+        public override string ToString()
+        {
+            return Value;
+        }
     }
 }
