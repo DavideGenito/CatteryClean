@@ -13,10 +13,10 @@ namespace Application.Interfaces
         void AddCat (Cat cat);
         void UpdateCat (Cat cat);
         void RemoveCat(Cat cat);
-        Cat? GetByName(string name);
-        void RegisterAdoption (Adoption adoption);
-        void CancelAdoption (Adoption adoption);
-        void RegisterAdopter (Adopter adopter);
+        Cat? GetByID(string ID);
+        void RegisterAdoption(Adoption adoption);
+        void CancelAdoption(string ID);
         List<Cat> GetAllCats();
+        List<Cat> GetAllAdoptions();
     }
 }

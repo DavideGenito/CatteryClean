@@ -2,12 +2,44 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Domain.Model.ValueObjects
 {
     public record Address
     {
+        public Address(string street, string civicNumber, string city, string postalCode)
+        {
+            Street = street;
+            CivicNumber = civicNumber;
+            City = city;
+            PostalCode = postalCode;
+        }
+
+        public Address(string adress)
+        {
+            /*
+             * ?<Street> dà un nome a quel gruppo.
+             * . → qualsiasi carattere
+             * + → uno o più
+             * ? → modalità “non greedy” (prende il meno possibile per permettere agli altri gruppi di funzionare correttamente)
+             * \d → cifra da 0 a 9
+             * */
+            var match = Regex.Match(adress, @"^(?<Street>.+?) (?<CivicNumber>[A-Za-z0-9/-]+), (?<City>.+?) (?<PostalCode>\d+)$");
+            if (!match.Success)
+            {
+                throw new ArgumentException("Address format is invalid.");
+            }
+            else
+            {
+                Street = match.Groups["Street"].Value;
+                CivicNumber = match.Groups["CivicNumber"].Value;
+                City = match.Groups["City"].Value;
+                PostalCode = match.Groups["PostalCode"].Value;
+            }
+        }
+
         private string _street;
         public string Street
         {
@@ -73,14 +105,6 @@ namespace Domain.Model.ValueObjects
                 }
                 _postalCode = value;
             }
-        }
-
-        public Address(string street, string civicNumber, string city, string postalCode)
-        {
-            Street = street;
-            CivicNumber = civicNumber;
-            City = city;
-            PostalCode = postalCode;
         }
 
         public override string ToString()

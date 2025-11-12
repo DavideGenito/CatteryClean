@@ -39,7 +39,7 @@ namespace WPF
                 DateTime.Now,
                 null,
                 dtpBirthDate.SelectedDate ?? null,
-                txtDescription.Text,
+                txtDescription.Text.Trim(),
                 null
                 );
             cattery.AddCat(cat);

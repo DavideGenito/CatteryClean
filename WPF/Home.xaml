@@ -16,7 +16,7 @@
                 <MenuItem 
                     Header="_New"
                     x:Name="newCat"
-                    Click="BtnNewCat_Click">
+                    Click="btnNewCat_Click">
                     <MenuItem.Icon>
                         <Image 
                             x:Name="imgNewCat" 
@@ -26,16 +26,22 @@
                 </MenuItem>
                 <MenuItem 
                     Header="_Manage" 
-                    Click="BtnManageCats_Click"/>
+                    Click="btnManageCats_Click"/>
             </MenuItem>
             <MenuItem 
                 Header="_Adoption">
                 <MenuItem 
-                    Header="_New" />
+                    Header="_New" 
+                    Click="btnAdopt_Click"/>
                 <MenuItem 
-                    Header="_Failed" />
+                    Header="_Failed" 
+                    Click="btnFailed_Click"/>
+            </MenuItem>
+            <MenuItem
+                Header="_Adopter">
                 <MenuItem 
-                    Header="_Register" />
+                    Header="_Register"
+                    Click="btnRegister_Click"/>
             </MenuItem>
         </Menu>
 

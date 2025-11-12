@@ -17,7 +17,9 @@ namespace Application.Mappers
             {
                 throw new ArgumentNullException(nameof(catDto), "CatDto cannot be null.");
             }
-            else return new Cat(
+            else if (catDto.Id == null)
+            {
+                return new Cat(
                 catDto.Name,
                 catDto.Breed,
                 catDto.IsMale,
@@ -25,7 +27,21 @@ namespace Application.Mappers
                 catDto.AdoptionDate,
                 catDto.BirthDate,
                 catDto.Description
-            );
+                );
+            }
+            else
+            {
+                return new Cat(
+                catDto.Name,
+                catDto.Breed,
+                catDto.IsMale,
+                catDto.ArrivalDate,
+                catDto.AdoptionDate,
+                catDto.BirthDate,
+                catDto.Description,
+                catDto.Id
+                );
+            }
         }
         
         public static CatDto ToCatDto(this Cat cat)

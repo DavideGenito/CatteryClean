@@ -1,0 +1,106 @@
+﻿<Window x:Class="WPF.UpdateCat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="UpdateCat" Height="450" Width="800">
+    <StackPanel
+        Orientation="Vertical"
+        VerticalAlignment="Center">
+
+        <Label
+            Content="Update cat"
+            FontSize="36"
+            FontWeight="Bold"
+            HorizontalAlignment="Center"
+            Margin="10"/>
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <Label
+                Width="100"
+                Content="Name:"
+                FontSize="24"
+                Margin="5"/>
+            <TextBox
+                FontSize="24"
+                Margin="5"
+                Width="200"
+                x:Name="txtName"/>
+        </StackPanel>
+
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <Label
+                Width="100"
+                Content="Race:"
+                FontSize="24"
+                Margin="5"/>
+            <TextBox
+                FontSize="24"
+                Margin="5"
+                Width="200"
+                x:Name="txtRace"/>
+        </StackPanel>
+
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <Label
+                Content="Is he male?"
+                FontSize="24"
+                Margin="5"/>
+            <CheckBox
+                Height="15"
+                Margin="5"
+                x:Name="chkIsMale"/>
+        </StackPanel>
+
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <Label
+                Content="Birth date:"
+                FontSize="24"
+                Margin="5"/>
+            <DatePicker
+                FontSize="24"
+                Margin="5"
+                x:Name="dtpBirthDate"/>
+        </StackPanel>
+
+        <StackPanel
+            Orientation="Horizontal"
+            HorizontalAlignment="Center">
+            <Label
+                Content="Description:"
+                FontSize="24"
+                Margin="5"/>
+            <TextBox
+                FontSize="15"
+                Margin="5"
+                Width="200"
+                x:Name="txtDescription"/>
+        </StackPanel>
+
+        <Button
+            Content="Update"
+            FontSize="24"
+            Width="130"
+            Height="50"
+            HorizontalAlignment="Center"
+            Margin="5"
+            x:Name="btnAddCat"
+            Background="LightGreen" Click="btnUpdateCat_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </StackPanel>
+</Window>

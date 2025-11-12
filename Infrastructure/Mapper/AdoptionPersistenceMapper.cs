@@ -20,7 +20,7 @@ namespace Infrastructure.Mapper
                 throw new ArgumentNullException(nameof(adoptionDto), "AdopterDto cannot be null.");
             }
             else return new Adoption(
-                adoptionDto.Adopter.ToAdopterPersistence(),
+                adoptionDto.Adopter.ToAdopter(),
                 adoptionDto.Cat.ToCat(),
                 adoptionDto.AdoptionDate
             );

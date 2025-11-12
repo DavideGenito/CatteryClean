@@ -13,9 +13,11 @@ namespace Application.UseCases
     public class CatteryService
     {
         private readonly ICatteryRepository _catteryRepository;
-        public CatteryService (ICatteryRepository catteryRepository)
+        private readonly IAdopterRepository _adopterRepository;
+        public CatteryService (ICatteryRepository catteryRepository, IAdopterRepository adopterRepository)
         {
             _catteryRepository = catteryRepository;
+            _adopterRepository = adopterRepository;
         }
 
         public void AddCat(CatDto catDto)
@@ -46,37 +48,38 @@ namespace Application.UseCases
             _catteryRepository.RemoveCat(catDto.ToCat());
         }
 
-        public CatDto? GetCatByName(string name)
+        public CatDto? GetCatByID(string id)
         {
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(id))
             {
                 throw new ArgumentException("Cat name cannot be null or empty.");
             }
             else
             {
-                return _catteryRepository.GetByName(name)?.ToCatDto();
+                return _catteryRepository.GetByID(id)?.ToCatDto();
             }
         }
-
         public void RegisterAdoption(AdoptionDto adoptionDto)
         {
             _catteryRepository.RegisterAdoption(adoptionDto.ToAdoption());
+            _adopterRepository.RegisterAdopter(adoptionDto.Adopter.ToAdopter());
         }
 
-        public void CancelAdoption(AdoptionDto adoptionDto)
+        public void CancelAdoption(string id)
         {
-            _catteryRepository.CancelAdoption(adoptionDto.ToAdoption());
-        }
-
-        public void RegisterAdopter(AdopterDto adopterDto)
-        {
-            _catteryRepository.RegisterAdopter(adopterDto.ToAdopter());
+            _catteryRepository.CancelAdoption(id);
         }
 
         public List<CatDto> GetAllCats()
         {
             var cats = _catteryRepository.GetAllCats();
             return cats.Select(cat => cat.ToCatDto()).ToList();
+        }
+
+        public List<CatDto> GetAllAdoptions()
+        {
+            var cats = _catteryRepository.GetAllAdoptions();
+            return cats.Select(cats => cats.ToCatDto()).ToList();
         }
     }
 }

@@ -9,12 +9,12 @@ namespace Domain.Model.ValueObjects
 {
     public record Email
     {
-        string value;
+        public string Value;
         public Email(string value)
         {
             if(value.Contains("@") && value.Contains("."))
             {
-                this.value = value;
+                this.Value = value;
             }
             else
             {

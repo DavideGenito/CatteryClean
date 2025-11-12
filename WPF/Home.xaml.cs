@@ -20,7 +20,9 @@ namespace WPF
     public partial class Home : Window
     {
         JsonCatRepository jsonCatRepository = new JsonCatRepository();
+        JsonAdopterRepository jsonAdopterRepository = new JsonAdopterRepository();
         CatteryService catteryService;
+        AdopterService adopterService;
         public Home()
         {
             InitializeComponent();
@@ -31,17 +33,38 @@ namespace WPF
             Update();
         }
 
-        private void BtnNewCat_Click(object sender, RoutedEventArgs e)
+        private void btnNewCat_Click(object sender, RoutedEventArgs e)
         {
             AddCat addCatWindow = new AddCat(catteryService);
             addCatWindow.ShowDialog();
             Update();
         }
 
-        private void BtnManageCats_Click(object sender, RoutedEventArgs e)
+        private void btnManageCats_Click(object sender, RoutedEventArgs e)
         {
             ManageCats manageCats = new ManageCats(catteryService);
             manageCats.ShowDialog();
+            Update();
+        }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            Register registerAdopter = new Register(adopterService);
+            registerAdopter.ShowDialog();
+            Update();
+        }
+
+        private void btnAdopt_Click(object sender, RoutedEventArgs e)
+        {
+            Adopt adoptWindow = new Adopt(adopterService, catteryService);
+            adoptWindow.ShowDialog();
+            Update();
+        }
+
+        private void btnFailed_Click(object sender, RoutedEventArgs e)
+        {
+            FailedAdoption failedAdoptionWindow = new FailedAdoption(catteryService);
+            failedAdoptionWindow.ShowDialog();
             Update();
         }
 
@@ -50,7 +73,8 @@ namespace WPF
             int maleCats = 0;
             int femaleCats = 0;
             int adoptedCats = 0;
-            catteryService = new CatteryService(jsonCatRepository);
+            catteryService = new CatteryService(jsonCatRepository, jsonAdopterRepository);
+            adopterService = new AdopterService(jsonAdopterRepository);
             var cats = catteryService.GetAllCats();
             foreach (var cat in cats)
             {

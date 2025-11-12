@@ -1,5 +1,6 @@
 ﻿using Application.Dto;
 using Domain.Model.Entities;
+using Domain.Model.ValueObjects;
 using Infrastructure.Dto;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Infrastructure.Mapper
 {
     internal static class AdopterPersistenceMapper
     {
-        public static Adopter ToAdopterPersistence(this AdopterPersistenceDto adopterDto)
+        public static Adopter ToAdopter(this AdopterPersistenceDto adopterDto)
         {
             if (adopterDto == null)
             {
@@ -20,10 +21,10 @@ namespace Infrastructure.Mapper
             else return new Adopter(
                 adopterDto.Name,
                 adopterDto.Surname,
-                adopterDto.Email,
-                adopterDto.PhoneNumber,
-                adopterDto.Address,
-                adopterDto.TIN
+                new Email(adopterDto.Email),
+                new PhoneNumber(adopterDto.PhoneNumber),
+                new Address(adopterDto.Address),
+                new TIN(adopterDto.TIN)
             );
         }
 
@@ -36,10 +37,10 @@ namespace Infrastructure.Mapper
             else return new AdopterPersistenceDto(
                 adopter.Name,
                 adopter.Surname,
-                adopter.PhoneNumber,
-                adopter.Email,
-                adopter.Address,
-                adopter.TIN
+                adopter.PhoneNumber.Value,
+                adopter.Email.Value,
+                adopter.Address.ToString(),
+                adopter.TIN.Value
             );
         }
     }

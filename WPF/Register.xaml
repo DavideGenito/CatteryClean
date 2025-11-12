@@ -1,0 +1,135 @@
+﻿<Window x:Class="WPF.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="Register" Height="470" Width="800">
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+        <Label
+            Content="Adopter Registration"
+            FontWeight="Bold"
+            FontSize="25"
+            HorizontalAlignment="Center"
+            Margin="10"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label
+                Content="Name:"
+                Width="100"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtName"
+                Width="200"
+                Height="25"
+                Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label
+                Content="Surname:"
+                Width="100"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtSurname"
+                Width="200"
+                Height="25"
+                Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label
+                Content="TIN:"
+                Width="100"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtTIN"
+                Width="200"
+                Height="25"
+                Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label
+                Content="Phone number:"
+                Width="100"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtPhone"
+                Width="200"
+                Height="25"
+                Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label
+                Content="Email:"
+                Width="100"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtEmail"
+                Width="200"
+                Height="25"
+                Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label
+                Content="City:"
+                Width="50"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtAdressCity"
+                Width="130"
+                Height="25"
+                Margin="10"/>
+            <Label
+                Content="Postal code:"
+                Width="90"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtAdressPostalCode"
+                Width="130"
+                Height="25"
+                Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Label
+                Content="Street:"
+                Width="50"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtAdressStreet"
+                Width="130"
+                Height="25"
+                Margin="10"/>
+            <Label
+                Content="Civic number:"
+                Width="90"
+                VerticalAlignment="Center"
+                Margin="10"/>
+            <TextBox
+                x:Name="txtAdressCivicNumber"
+                Width="130"
+                Height="25"
+                Margin="10"/>
+        </StackPanel>
+        <Button
+            x:Name="btnRegister"
+            Content="Register"
+            Width="100"
+            Height="30"
+            Margin="20" 
+            Click="btnRegister_Click"
+            Background="PaleGreen">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </StackPanel>
+</Window>

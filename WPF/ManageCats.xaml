@@ -11,28 +11,84 @@
         HorizontalAlignment="Center"
         Margin="10">
         <Label
-            Content="Ciao bello questa è il manage per i catti"
+            Content="Manage cats"
             FontWeight="Bold"
             FontSize="25"
+            HorizontalAlignment="Center"
             />
 
-        <DataGrid x:Name="dgCats" AutoGenerateColumns="False">
+        <TextBox 
+            x:Name="txtSearch" 
+            Text="Search by name"
+            Width="200" 
+            Height="25" 
+            Margin="10"
+            HorizontalAlignment="Center"
+            GotFocus="RemoveText"
+        />
+
+        <DataGrid x:Name="dgCats" AutoGenerateColumns="False" Margin="10" MaxHeight="230">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Breed" Binding="{Binding Breed}" IsReadOnly="True"/>
                 <DataGridCheckBoxColumn Header="IsMale" Binding="{Binding IsMale}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="ArrivalDate" Binding="{Binding ArrivalDate}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="AdoptionDate" Binding="{Binding AdoptionDate}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="BirthDate" Binding="{Binding BirthDate}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="ArrivalDate" Binding="{Binding ArrivalDate, StringFormat='{}{0:dd/MM/yy}'}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="AdoptionDate" Binding="{Binding AdoptionDate, StringFormat='{}{0:dd/MM/yy}', TargetNullValue='Non adottato'}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="BirthDate" Binding="{Binding BirthDate, StringFormat='{}{0:dd/MM/yy}'}" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Description">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button x:Name="ViewDescription" Content="View"/>
+                            <Button Click="ViewDescription_Click" Content="View" Margin="5, 1" Background="RosyBrown">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="3"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Actions">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Click="EditCat_Click" Content="Edit" Margin="5,1" Width="50" Background="Beige">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="3"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Click="DeleteCat_Click" Content="Delete" Margin="5,1" Width="70" Background="IndianRed">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="3"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Button 
+            x:Name="btnExit" 
+            Content="Exit" 
+            Width="100" 
+            Height="30" 
+            Margin="10" 
+            HorizontalAlignment="Center"
+            Click="Exit_Click"
+            Background="DarkRed"
+            Foreground="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </StackPanel>
 </Window>

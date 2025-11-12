@@ -10,9 +10,9 @@ namespace Application.Dto
     public record AdopterDto(
         string Name,
         string Surname,
-        PhoneNumber PhoneNumber,
-        Email Email,
-        Address Address,
-        TIN TIN
+        string PhoneNumber,
+        string Email,
+        string Address,
+        string TIN
         );
 }

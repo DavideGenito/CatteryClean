@@ -20,10 +20,10 @@ namespace Application.Mappers
             else return new Adopter(
                 adopterDto.Name,
                 adopterDto.Surname,
-                adopterDto.Email,
-                adopterDto.PhoneNumber,
-                adopterDto.Address,
-                adopterDto.TIN
+                new Email(adopterDto.Email),
+                new PhoneNumber(adopterDto.PhoneNumber),
+                new Address(adopterDto.Address),
+                new TIN(adopterDto.TIN)
             );
         }
 
@@ -36,10 +36,10 @@ namespace Application.Mappers
             else return new AdopterDto(
                 adopter.Name,
                 adopter.Surname,
-                adopter.PhoneNumber,
-                adopter.Email,
-                adopter.Address,
-                adopter.TIN
+                adopter.PhoneNumber.Value,
+                adopter.Email.Value,
+                adopter.Address.ToString(),
+                adopter.TIN.Value
             );
         }
     }
