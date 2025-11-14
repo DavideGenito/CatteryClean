@@ -5,17 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
-        Title="Home" Height="450" Width="800">
-
+        Title="Cat Adoption Center" Height="620" Width="640"
+        Background="#F5F5F5">
     <StackPanel 
         Orientation="Vertical">
+        <!-- Menu con stile migliorato -->
         <Menu 
-            VerticalAlignment="Top">
+            VerticalAlignment="Top"
+            Background="#2C3E50"
+            Foreground="White">
             <MenuItem 
-                Header="_Cats">
+                Header="_Cats"
+                FontWeight="SemiBold">
                 <MenuItem 
                     Header="_New"
                     x:Name="newCat"
+                    Foreground="#2C3E50"
                     Click="btnNewCat_Click">
                     <MenuItem.Icon>
                         <Image 
@@ -26,87 +31,246 @@
                 </MenuItem>
                 <MenuItem 
                     Header="_Manage" 
+                    Foreground="#2C3E50"
                     Click="btnManageCats_Click"/>
             </MenuItem>
             <MenuItem 
-                Header="_Adoption">
+                Header="_Adoption"
+                Foreground="White"
+                FontWeight="SemiBold">
                 <MenuItem 
                     Header="_New" 
+                    Foreground="#2C3E50"
                     Click="btnAdopt_Click"/>
                 <MenuItem 
                     Header="_Failed" 
+                    Foreground="#2C3E50"
                     Click="btnFailed_Click"/>
             </MenuItem>
             <MenuItem
-                Header="_Adopter">
+                Header="_Adopter"
+                Foreground="White"
+                FontWeight="SemiBold">
                 <MenuItem 
                     Header="_Register"
+                    Foreground="#2C3E50"
                     Click="btnRegister_Click"/>
             </MenuItem>
         </Menu>
 
+        <!-- Contenuto principale -->
         <StackPanel
             Orientation="Vertical"
-            Margin="20"
+            Margin="40,30,40,40"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
-            <Label 
-                Content="Welcome to the Cat Adoption Center!" 
-                FontSize="24" 
-                FontWeight="Bold" 
-                Margin="10" 
-                HorizontalAlignment="Center"/>
 
-            <StackPanel
+            <!-- Header con icona -->
+            <StackPanel 
                 Orientation="Horizontal"
                 HorizontalAlignment="Center"
-                Margin="10">
-                <Label
-                    Content="Number of male cats: "
-                    FontSize="20"/>
-                <Label
-                    x:Name="lblMaleCats"
-                    FontSize="20"
-                    Content="0"/>
+                Margin="0,0,0,30">
+                <TextBlock
+                    Text="🐱"
+                    FontSize="48"
+                    Margin="0,0,15,0"
+                    VerticalAlignment="Center"/>
+                <StackPanel Orientation="Vertical">
+                    <Label 
+                        Content="Cat Adoption Center" 
+                        FontSize="32" 
+                        FontWeight="Bold" 
+                        Foreground="#2C3E50"
+                        Padding="0"
+                        Margin="0,0,0,5"/>
+                    <Label
+                        Content="Welcome! Here's your dashboard"
+                        FontSize="14"
+                        Foreground="#7F8C8D"
+                        Padding="0"
+                        Margin="0"/>
+                </StackPanel>
             </StackPanel>
 
+            <!-- Griglia delle statistiche -->
             <StackPanel
-                Orientation="Horizontal"
-                HorizontalAlignment="Center"
-                Margin="10">
-                <Label
-                    Content="Number of female cats: "
-                    FontSize="20"/>
-                <Label
-                    x:Name="lblFemaleCats"
-                    FontSize="20"
-                    Content="0"/>
-            </StackPanel>
+                Orientation="Vertical"
+                HorizontalAlignment="Center">
 
-            <StackPanel
-                Orientation="Horizontal"
-                HorizontalAlignment="Center"
-                Margin="10">
-                <Label
-                    Content="Total cats: "
-                    FontSize="20"/>
-                <Label
-                    x:Name="lblTotCats"
-                    FontSize="20"
-                    Content="0"/>
-            </StackPanel>
+                <!-- Prima riga: Maschi e Femmine -->
+                <StackPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,20">
 
-            <StackPanel
-                Orientation="Horizontal"
-                HorizontalAlignment="Center"
-                Margin="10">
-                <Label
-                    Content="Total adoption: "
-                    FontSize="20"/>
-                <Label
-                    x:Name="lblTotAdoption"
-                    FontSize="20"
-                    Content="0"/>
+                    <!-- Card Maschi -->
+                    <Border
+                        Background="#3498DB"
+                        CornerRadius="10"
+                        Padding="30,25"
+                        Margin="0,0,15,0"
+                        Width="240">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                Color="#CCCCCC" 
+                                Direction="270" 
+                                ShadowDepth="3" 
+                                BlurRadius="10" 
+                                Opacity="0.3"/>
+                        </Border.Effect>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock
+                                Text="♂"
+                                FontSize="36"
+                                Foreground="White"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,10"/>
+                            <Label
+                                Content="Male Cats"
+                                FontSize="16"
+                                Foreground="White"
+                                FontWeight="SemiBold"
+                                HorizontalAlignment="Center"
+                                Padding="0"
+                                Margin="0,0,0,10"/>
+                            <Label
+                                x:Name="lblMaleCats"
+                                FontSize="42"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Content="0"
+                                HorizontalAlignment="Center"
+                                Padding="0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Card Femmine -->
+                    <Border
+                        Background="#E91E63"
+                        CornerRadius="10"
+                        Padding="30,25"
+                        Margin="15,0,0,0"
+                        Width="240">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                Color="#CCCCCC" 
+                                Direction="270" 
+                                ShadowDepth="3" 
+                                BlurRadius="10" 
+                                Opacity="0.3"/>
+                        </Border.Effect>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock
+                                Text="♀"
+                                FontSize="36"
+                                Foreground="White"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,10"/>
+                            <Label
+                                Content="Female Cats"
+                                FontSize="16"
+                                Foreground="White"
+                                FontWeight="SemiBold"
+                                HorizontalAlignment="Center"
+                                Padding="0"
+                                Margin="0,0,0,10"/>
+                            <Label
+                                x:Name="lblFemaleCats"
+                                FontSize="42"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Content="0"
+                                HorizontalAlignment="Center"
+                                Padding="0"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Seconda riga: Totale gatti e Adozioni -->
+                <StackPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+
+                    <!-- Card Totale -->
+                    <Border
+                        Background="#9B59B6"
+                        CornerRadius="10"
+                        Padding="30,25"
+                        Margin="0,0,15,0"
+                        Width="240">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                Color="#CCCCCC" 
+                                Direction="270" 
+                                ShadowDepth="3" 
+                                BlurRadius="10" 
+                                Opacity="0.3"/>
+                        </Border.Effect>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock
+                                Text="🐾"
+                                FontSize="36"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,10"/>
+                            <Label
+                                Content="Total Cats"
+                                FontSize="16"
+                                Foreground="White"
+                                FontWeight="SemiBold"
+                                HorizontalAlignment="Center"
+                                Padding="0"
+                                Margin="0,0,0,10"/>
+                            <Label
+                                x:Name="lblTotCats"
+                                FontSize="42"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Content="0"
+                                HorizontalAlignment="Center"
+                                Padding="0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Card Adozioni -->
+                    <Border
+                        Background="#27AE60"
+                        CornerRadius="10"
+                        Padding="30,25"
+                        Margin="15,0,0,0"
+                        Width="240">
+                        <Border.Effect>
+                            <DropShadowEffect 
+                                Color="#CCCCCC" 
+                                Direction="270" 
+                                ShadowDepth="3" 
+                                BlurRadius="10" 
+                                Opacity="0.3"/>
+                        </Border.Effect>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock
+                                Text="❤️"
+                                FontSize="36"
+                                HorizontalAlignment="Center"
+                                Margin="0,0,0,10"/>
+                            <Label
+                                Content="Total Adoptions"
+                                FontSize="16"
+                                Foreground="White"
+                                FontWeight="SemiBold"
+                                HorizontalAlignment="Center"
+                                Padding="0"
+                                Margin="0,0,0,10"/>
+                            <Label
+                                x:Name="lblTotAdoption"
+                                FontSize="42"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Content="0"
+                                HorizontalAlignment="Center"
+                                Padding="0"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </StackPanel>
