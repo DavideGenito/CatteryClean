@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zFcxn8DEs60=",
+  "dgSpecHash": "JcLyNOEPUlY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\davide.genito\\Desktop\\Nuova cartella\\CatteryClean\\DomainTest\\TestDomain.csproj",
+  "projectFilePath": "C:\\Users\\davide.genito\\Desktop\\Git\\CatteryClean\\DomainTest\\TestDomain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davide.genito\\.nuget\\packages\\microsoft.applicationinsights\\2.22.0\\microsoft.applicationinsights.2.22.0.nupkg.sha512",
     "C:\\Users\\davide.genito\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",
